@@ -1,0 +1,70 @@
+<div class="container">
+    <h2>{{title}}</h2>
+    <a routerLink="add" >
+      <button type="button" style="margin-right: 20px;" class="btn btn-success " >Añadir</button>
+  </a>
+</div>
+<br>
+
+<div *ngFor="let per of Persona;" class="container">
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+            </div>
+            <input type="text" class="form-control"  maxlength="20"  [(ngModel)]="per.nombre" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
+            </div>
+            <input type="text" class="form-control" maxlength="20"  [(ngModel)]="per.apellido" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">direccion</span>
+            </div>
+            <input type="text" class="form-control"  maxlength="40" [(ngModel)]="per.direccion" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Telefono</span>
+            </div>
+            <input type="text" class="form-control" maxlength="9"  [(ngModel)]="per.telefono" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Celular</span>
+            </div>
+            <input type="text" class="form-control" maxlength="9" [(ngModel)]="per.celular" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"  id="inputGroup-sizing-sm">fecha Nacimiento</span>
+            </div>
+            <input type="text" class="form-control"  [(ngModel)]="per.fechaNacimiento" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Tiene Coronavirus</span>
+            </div>
+            <input type="text" class="form-control" maxlength="3" [(ngModel)]="per.hasCoronavirus" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Tiene asSintomas</span>
+            </div>
+            <input type="text" class="form-control" maxlength="3" [(ngModel)]="per.hasSintomas" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+        <div class="input-group mr-3" >
+            <a routerLink="{{per.idpersona}}" >
+                <button type="button" style="margin-right: 20px;" class="btn btn-success " >Actualizar</button>
+            </a>
+                <button type="button" class="btn btn-danger" [value]="per.idpersona" (click)=eliminar(per)> Eliminar </button>
+        </div>
+        <div class="input-group input-group-sm mb-3">
+        </div>
+</div>
+
+
+
+
