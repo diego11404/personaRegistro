@@ -56,7 +56,7 @@ export class AddPersonaComponent implements OnInit {
     }
     this.personaService.createPersona(per).subscribe(persona => {
       console.log('saved', persona)
-        this.router.navigate(['/personas'])
+        this.router.navigate(['/persona/all'])
     });
 
   }
@@ -64,7 +64,7 @@ export class AddPersonaComponent implements OnInit {
   Actualizar(per) {
     this.personaService.updatePersona(per).subscribe(persona => {
       console.log('saved', persona)
-        this.router.navigate(['/personas'])
+        this.router.navigate(['/persona/all'])
     });
 
   }

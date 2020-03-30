@@ -13,28 +13,31 @@ export class PersonaService {
   
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'json': 'true'
+    }),
+    withCredentials: true
   }  
 
   constructor(private http: HttpClient) { }
 
   getPersona(id: number) : Observable<Persona> {
-    return this.http.get<Persona>(this.apiURL + '/personas/'+id)
+    return this.http.get<Persona>(this.apiURL + '/persona/'+id, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
   }
   getPersonas() : Observable<Persona[]> {
-    return this.http.get<Persona[]>(this.apiURL + '/personas')
+    return this.http.get<Persona[]>(this.apiURL + '/persona/all', this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
   }
   createPersona(persona): Observable<Persona> {
-    return this.http.post<Persona>(this.apiURL + '/personas/add', JSON.stringify(persona), this.httpOptions)
+    return this.http.post<Persona>(this.apiURL + '/persona/add', JSON.stringify(persona), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -42,7 +45,7 @@ export class PersonaService {
   }  
 
   updatePersona(persona): Observable<Persona> {
-    return this.http.put<Persona>(this.apiURL + '/personas/update/' + persona.idpersona, JSON.stringify(persona), this.httpOptions)
+    return this.http.put<Persona>(this.apiURL + '/persona/update/' + persona.idpersona, JSON.stringify(persona), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -50,18 +53,19 @@ export class PersonaService {
   }
 
   deletePersona(id){
-    return this.http.delete<Persona>(this.apiURL + '/personas/' + id, this.httpOptions)
+    return this.http.delete<Persona>(this.apiURL + '/persona/delete/' + id, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
   }
   handleError(error) {
+    console.log(error)
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
     } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      errorMessage = `Error Code: ${error.error.code}\nMessage: ${error.error.message}`;
     }
     window.alert(errorMessage);
     return throwError(errorMessage);

@@ -1,0 +1,18 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-operator",
+            "check-typecast",
+            "check-type",
+            "check-curly"
+        ]
+    },
+    "rulesDirectory": []
+}

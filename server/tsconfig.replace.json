@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist",
+      "baseUrl": "./",
+      "paths": {
+        "@model/*": [
+          "src/model/*"
+        ],
+        "@controllers/*": [
+          "src/controller/*"
+        ],
+      }
+    }
+  }

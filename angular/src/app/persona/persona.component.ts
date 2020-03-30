@@ -19,6 +19,7 @@ export class PersonaComponent implements OnInit {
        console.log(data)
         this.Persona = data
      })
+
   }
   
   ngOnInit(): void {
@@ -28,7 +29,7 @@ export class PersonaComponent implements OnInit {
   eliminar(persona : Persona){
     this.personaService.deletePersona(persona.idpersona).subscribe( ( data) =>{
       console.log(data)
-      this.router.navigate(['/personas/add'])
+      this.router.navigate(['/persona/all'])
     })
   }
  

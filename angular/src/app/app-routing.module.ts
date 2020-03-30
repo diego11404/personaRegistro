@@ -7,13 +7,13 @@ import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo : 'personas' , pathMatch: 'full'},
+  {path: '', redirectTo : 'persona/all' , pathMatch: 'full'},
   { path: '',
     children: [
-      { path: 'personas',  component: PersonaComponent },
-      { path: 'personas/add',  component: AddPersonaComponent },
-      { path: 'personas/:id',  component: AddPersonaComponent },
-      { path: '',  redirectTo : 'personas' , pathMatch: 'full'},
+      { path: 'persona/all',  component: PersonaComponent },
+      { path: 'persona/add',  component: AddPersonaComponent },
+      { path: 'persona/update/:id',  component: AddPersonaComponent },
+      { path: '',  redirectTo : 'persona/all' , pathMatch: 'full'},
 
     ]
   },
