@@ -1,0 +1,25 @@
+{
+  "name": "proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node-dev --respawn  --transpileOnly -r tsconfig-paths/register src/index.ts ",
+    "client": "ts-node-dev --respawn  --transpileOnly -r tsconfig-paths/register src/client.ts ",
+    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^13.9.5",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.0",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tsconfig-paths": "^3.9.0",
+    "tscpaths": "0.0.9",
+    "typescript": "^3.8.3"
+  }
+}

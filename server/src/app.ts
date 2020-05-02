@@ -19,11 +19,14 @@ app.use(function(req, res, next) {
     next()
   });
 
-
 app.get('/', (req: Request, res: Response) => {
     res.send('hello world')
 })
 app.use('/persona', personaController)
+
+app.connect('/', (req: Request, res: Response) => {
+    res.send('hello world  CONNECT METHOD')
+})
 
 app.use((req, res, next) => {
     let err: any = new Error(`cannot ${req.method} to ${req.originalUrl}`); // Tells us which IP tried to reach a particular URL
